@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        /* Set height of body and the document to 100% */
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial;
+        }
+
+        /* Style tab links */
+        .tablink {
+            background-color: #555;
+            color: black;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+            .tablink:hover {
+                background-color: #777;
+            }
+
+        /* Style the tab content (and add height:100% for full page content) */
+        .tabcontent {
+            color: white;
+            display: none;
+            padding: 100px 20px;
+            height: 100%;
+        }
+        #Google{
+            background:white;
+        }
+        #Bing{
+            background:white;
+        }
+        #Yandex{
+            background:white;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <button class="tablink" onclick="openPage('Google', this, 'blue')" id="defaultOpen">Google</button>
+    <button class="tablink" onclick="openPage('Bing', this, 'red')">Bing</button>
+    <button class="tablink" onclick="openPage('Yandex', this, 'green')">Yandex</button>
+
+    <div id="Google" class="tabcontent">
+        <br />
+        <form class="form-inline" action="@Url.Action("GoogleAction")" method="post">
+            <input style="width: 100%; margin-left:auto; margin-right:auto;border:groove;height:40px;" class="form-control" id="inputdefault" autofocus="autofocus" type="text" name="search" required />
+            <button type="submit" style="height: 40px;" class="btn btn-success">Custom search</button><br /><br />
+        </form>
+        <h1 style="color:black">Search results from Google</h1>
+    </div>
+
+    <div id="Bing" class="tabcontent">
+        <br />
+        <form class="form-inline" action="@Url.Action("BingAction")" method="post">
+            <input style="width: 100%; margin-left:auto; margin-right:auto;border:groove;height:40px;" class="form-control" id="inputdefault" autofocus="autofocus" type="text" name="search" required />
+            <button type="submit" style="height: 40px;" class="btn btn-success">Custom search</button><br /><br />
+        </form>
+        <h1 style="color:black">Search results from Bing</h1>
+    </div>
+
+    <div id="Yandex" class="tabcontent">
+        <br />
+        <form class="form-inline" action="@Url.Action("YandexAction")" method="post">
+            <input style="width: 100%; margin-left:auto; margin-right:auto;border:groove;height:40px;" class="form-control" id="inputdefault" autofocus="autofocus" type="text" name="search" required />
+            <button type="submit" style="height: 40px;" class="btn btn-success">Custom search</button><br /><br />
+        </form>
+        <h1 style="color:black">Search results from Yandex</h1>
+        <h4>Yandex result may have some errors, due to Yandex Search API don't access to use Custom search, set a limit even a new account with new API</h4>
+    </div>
+    <script>
+        function openPage(pageName, elmnt, color) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
+</body>
+</html>
+
+
+
