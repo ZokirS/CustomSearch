@@ -34,8 +34,8 @@ namespace CustomSearch.Controllers
 
         public ActionResult GoogleAction(string search)
         {
-            string cx = "008278640193388741049:9fcgnjlldd0";
-            string apiKey = "AIzaSyBIUuDVGVvCsRRj-t09plkpSl5vSlhyz9Q";
+            string cx = "**********************";
+            string apiKey = "********************";
             var request = WebRequest.Create("https://www.googleapis.com/customsearch/v1?key=" + apiKey + "&cx=" + cx + "&q=" + search);
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream dataStream = response.GetResponseStream();
@@ -65,8 +65,8 @@ namespace CustomSearch.Controllers
         public ActionResult BingAction(string search)
         {
             
-            string customConfig = "de76e4af-c25b-4bd9-a770-cc25600df024";
-            string subKey = "2d1aa09d64ea49e3baf014eb3551d181";
+            string customConfig = "******************";
+            string subKey = "*************************";
             string market = "en-US";
             var request = WebRequest.Create(@"https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?q=" + search + "&customconfig=" + customConfig + "&mkt=" + market);
             request.Headers.Add("Ocp-Apim-Subscription-Key", "f44a57a462784b19b408f981508dcb01");
@@ -100,8 +100,8 @@ namespace CustomSearch.Controllers
         public ActionResult YandexAction(string searchQuery)
         {
 
-            string key = "03.1142428892:dc6794e226d59c29a826ba52876752bd";
-            string user = "sobirjonov96";
+            string key = "********************";
+            string user = "*********************";
             string url = @"https://yandex.ru/search/xml?user={0}&key={1}&query={2}&l10n=ru&sortby=tm.order%3Dascending&filter=strict&groupby=attr%3D%22%22.mode%3Dflat.groups-on-page%3D10.docs-in-group%3D1";
             string completeUrl = String.Format(url, user, key, searchQuery);
 
